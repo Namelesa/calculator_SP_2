@@ -1,8 +1,10 @@
-cmake_minimum_required(VERSION 3.29)
-project(untitled1)
+cmake_minimum_required(VERSION 3.10)
+project(CalculatorProject)
 
-set(CMAKE_CXX_STANDARD 20)
+add_library(calculator STATIC src/calculator.cpp)
 
-add_executable(untitled1 src/main.cpp
-        src/calculator.cpp
-        src/calculator.h)
+target_include_directories(calculator PUBLIC ${PROJECT_SOURCE_DIR}/include)
+
+add_executable(calculator_app src/main.cpp)
+
+target_link_libraries(calculator_app calculator)

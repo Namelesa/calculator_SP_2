@@ -1,6 +1,9 @@
 # ninja log v6
-1	39	1727416481364730994	CMakeFiles/untitled1.dir/src/calculator.cpp.o	6c613ae5de1e1862
-0	436	1727416481364314493	CMakeFiles/untitled1.dir/src/main.cpp.o	20903740dbf0620e
-438	473	1727416481801780357	untitled1	966fc05cf651166e
-4	40	1727416494564073428	CMakeFiles/untitled1.dir/src/main.cpp.o	20903740dbf0620e
 40	77	1727416494600367860	untitled1	966fc05cf651166e
+2	54	1727419986146266387	build.ninja	47a4d75ab43db228
+4	40	1727416494564073428	CMakeFiles/untitled1.dir/src/main.cpp.o	20903740dbf0620e
+1	39	1727416481364730994	CMakeFiles/untitled1.dir/src/calculator.cpp.o	6c613ae5de1e1862
+1	32	1727419996523494098	CMakeFiles/calculator.dir/src/calculator.cpp.o	fd641db861a53446
+33	58	1727419996555336225	libcalculator.a	743631d6b2e92ee7
+0	38	1727419996790871850	CMakeFiles/calculator_app.dir/src/main.cpp.o	37ead77ce9a2f076
+38	75	1727419996828679885	calculator_app	7b6467e8ec51feff

@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: untitled1
+# Project: CalculatorProject
 # Configurations: Debug
 # =============================================================================
 
@@ -41,41 +41,70 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /Users/maksimbilyk/CLionProjects/untitled1/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target untitled1
+# Object build statements for STATIC_LIBRARY target calculator
 
 
 #############################################
-# Order-only phony target for untitled1
+# Order-only phony target for calculator
 
-build cmake_object_order_depends_target_untitled1: phony || .
+build cmake_object_order_depends_target_calculator: phony || .
 
-build CMakeFiles/untitled1.dir/src/main.cpp.o: CXX_COMPILER__untitled1_unscanned_Debug /Users/maksimbilyk/CLionProjects/untitled1/src/main.cpp || cmake_object_order_depends_target_untitled1
-  DEP_FILE = CMakeFiles/untitled1.dir/src/main.cpp.o.d
-  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/untitled1.dir
-  OBJECT_FILE_DIR = CMakeFiles/untitled1.dir/src
-
-build CMakeFiles/untitled1.dir/src/calculator.cpp.o: CXX_COMPILER__untitled1_unscanned_Debug /Users/maksimbilyk/CLionProjects/untitled1/src/calculator.cpp || cmake_object_order_depends_target_untitled1
-  DEP_FILE = CMakeFiles/untitled1.dir/src/calculator.cpp.o.d
-  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/untitled1.dir
-  OBJECT_FILE_DIR = CMakeFiles/untitled1.dir/src
+build CMakeFiles/calculator.dir/src/calculator.cpp.o: CXX_COMPILER__calculator_unscanned_Debug /Users/maksimbilyk/CLionProjects/untitled1/src/calculator.cpp || cmake_object_order_depends_target_calculator
+  DEP_FILE = CMakeFiles/calculator.dir/src/calculator.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/maksimbilyk/CLionProjects/untitled1/include
+  OBJECT_DIR = CMakeFiles/calculator.dir
+  OBJECT_FILE_DIR = CMakeFiles/calculator.dir/src
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target untitled1
+# Link build statements for STATIC_LIBRARY target calculator
 
 
 #############################################
-# Link the executable untitled1
+# Link the static library libcalculator.a
 
-build untitled1: CXX_EXECUTABLE_LINKER__untitled1_Debug CMakeFiles/untitled1.dir/src/main.cpp.o CMakeFiles/untitled1.dir/src/calculator.cpp.o
-  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk
-  OBJECT_DIR = CMakeFiles/untitled1.dir
+build libcalculator.a: CXX_STATIC_LIBRARY_LINKER__calculator_Debug CMakeFiles/calculator.dir/src/calculator.cpp.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = CMakeFiles/calculator.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = untitled1
-  TARGET_PDB = untitled1.dbg
+  TARGET_FILE = libcalculator.a
+  TARGET_PDB = calculator.a.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target calculator_app
+
+
+#############################################
+# Order-only phony target for calculator_app
+
+build cmake_object_order_depends_target_calculator_app: phony || cmake_object_order_depends_target_calculator
+
+build CMakeFiles/calculator_app.dir/src/main.cpp.o: CXX_COMPILER__calculator_app_unscanned_Debug /Users/maksimbilyk/CLionProjects/untitled1/src/main.cpp || cmake_object_order_depends_target_calculator_app
+  DEP_FILE = CMakeFiles/calculator_app.dir/src/main.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/maksimbilyk/CLionProjects/untitled1/include
+  OBJECT_DIR = CMakeFiles/calculator_app.dir
+  OBJECT_FILE_DIR = CMakeFiles/calculator_app.dir/src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target calculator_app
+
+
+#############################################
+# Link the executable calculator_app
+
+build calculator_app: CXX_EXECUTABLE_LINKER__calculator_app_Debug CMakeFiles/calculator_app.dir/src/main.cpp.o | libcalculator.a || libcalculator.a
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk
+  LINK_LIBRARIES = libcalculator.a
+  OBJECT_DIR = CMakeFiles/calculator_app.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = calculator_app
+  TARGET_PDB = calculator_app.dbg
 
 
 #############################################
@@ -103,6 +132,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build calculator: phony libcalculator.a
+
 # =============================================================================
 # Folder targets.
 
@@ -111,7 +142,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/maksimbilyk/CLionProjects/untitled1/cmake-build-debug
 
-build all: phony untitled1
+build all: phony libcalculator.a calculator_app
 
 # =============================================================================
 # Built-in targets
